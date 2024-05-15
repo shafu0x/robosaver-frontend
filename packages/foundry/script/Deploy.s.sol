@@ -45,12 +45,14 @@ contract DeployScript is ScaffoldETHDeploy {
 
     function run() public {
         // grab pk from `.env`
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-        address deployer = vm.addr(deployerPrivateKey);
-        vm.startBroadcast(deployerPrivateKey);
+        // uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        // address deployer = vm.addr(deployerPrivateKey);
+        // vm.startBroadcast(deployerPrivateKey);
+        vm.startBroadcast();
 
         // 1. {RolesModule}
-        rolesModule = new Roles(deployer, GNOSIS_SAFE, GNOSIS_SAFE);
+        // rolesModule = new Roles(deployer, GNOSIS_SAFE, GNOSIS_SAFE);
+        rolesModule = new Roles(msg.sender, GNOSIS_SAFE, GNOSIS_SAFE);
 
         // 2. {DelayModule}
         delayModule = new Delay(GNOSIS_SAFE, GNOSIS_SAFE, GNOSIS_SAFE, COOL_DOWN_PERIOD, EXPIRATION_PERIOD);
