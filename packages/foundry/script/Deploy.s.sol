@@ -54,24 +54,24 @@ contract DeployScript is ScaffoldETHDeploy {
         // rolesModule = new Roles(deployer, GNOSIS_SAFE, GNOSIS_SAFE);
         rolesModule = new Roles(msg.sender, GNOSIS_SAFE, GNOSIS_SAFE);
 
-        // 2. {DelayModule}
-        delayModule = new Delay(GNOSIS_SAFE, GNOSIS_SAFE, GNOSIS_SAFE, COOL_DOWN_PERIOD, EXPIRATION_PERIOD);
+        // // 2. {DelayModule}
+        // delayModule = new Delay(GNOSIS_SAFE, GNOSIS_SAFE, GNOSIS_SAFE, COOL_DOWN_PERIOD, EXPIRATION_PERIOD);
 
-        // 3. {Bouncer}
-        bouncerContract = new Bouncer(GNOSIS_SAFE, address(rolesModule), SET_ALLOWANCE_SELECTOR);
+        // // 3. {Bouncer}
+        // bouncerContract = new Bouncer(GNOSIS_SAFE, address(rolesModule), SET_ALLOWANCE_SELECTOR);
 
-        // 4. {RoboSaverVirtualModule}
-        roboModule = new RoboSaverVirtualModule(address(delayModule), address(rolesModule), TRADER_AGENT, 50e18);
+        // // 4. {RoboSaverVirtualModule}
+        // roboModule = new RoboSaverVirtualModule(address(delayModule), address(rolesModule), TRADER_AGENT, 50e18);
 
-        // 5. {Allowance config}
-        rolesModule.setAllowance(
-            SET_ALLOWANCE_KEY,
-            MIN_EURE_ALLOWANCE,
-            MIN_EURE_ALLOWANCE,
-            MIN_EURE_ALLOWANCE,
-            ALLOWANCE_PERIOD,
-            uint64(block.timestamp)
-        );
+        // // 5. {Allowance config}
+        // rolesModule.setAllowance(
+        //     SET_ALLOWANCE_KEY,
+        //     MIN_EURE_ALLOWANCE,
+        //     MIN_EURE_ALLOWANCE,
+        //     MIN_EURE_ALLOWANCE,
+        //     ALLOWANCE_PERIOD,
+        //     uint64(block.timestamp)
+        // );
 
         // @note after deployment it is require to:
         // 1. Enable delay & roles modules on the safe (to be exec from the safe)
