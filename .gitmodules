@@ -1,0 +1,24 @@
+[submodule "packages/foundry/lib/forge-std"]
+	path = packages/foundry/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "packages/foundry/lib/openzeppelin-contracts"]
+	path = packages/foundry/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "packages/foundry/lib/solidity-bytes-utils"]
+	path = packages/foundry/lib/solidity-bytes-utils
+	url = https://github.com/gnsps/solidity-bytes-utils
+[submodule "packages/foundry/lib/account-kit"]
+	path = packages/foundry/lib/account-kit
+	url = https://github.com/gnosispay/account-kit
+[submodule "lib/balancer-core-v2"]
+	path = lib/balancer-core-v2
+	url = https://github.com/alcuadrado/balancer-core-v2
+[submodule "packages/foundry/lib/balancer-core-v2"]
+	path = packages/foundry/lib/balancer-core-v2
+	url = https://github.com/alcuadrado/balancer-core-v2
+[submodule "packages/foundry/lib/zodiac"]
+	path = packages/foundry/lib/zodiac
+	url = https://github.com/gnosisguild/zodiac
+[submodule "packages/foundry/lib/safe-smart-account"]
+	path = packages/foundry/lib/safe-smart-account
+	url = https://github.com/safe-global/safe-smart-account

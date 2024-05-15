@@ -1,0 +1,97 @@
+{
+  "name": "zodiac-roles-sdk",
+  "version": "2.9.1",
+  "license": "LGPL-3.0+",
+  "main": "build/cjs/sdk/src/index.js",
+  "module": "build/esm/sdk/src/index.js",
+  "types": "build/cjs/sdk/src/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./build/cjs/sdk/src/index.js",
+      "import": "./build/esm/sdk/src/index.js"
+    },
+    "./kit": {
+      "require": "./build/cjs/sdk/src/permissions/authoring/kit.js",
+      "import": "./build/esm/sdk/src/permissions/authoring/kit.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./build/cjs/sdk/src/index.d.ts"
+      ],
+      "kit": [
+        "./build/cjs/sdk/src/permissions/authoring/kit.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "build",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rimraf build && yarn build:cjs && yarn build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "check": "yarn check:types && yarn check:prettier && yarn check:lint",
+    "check:types": "tsc --noEmit",
+    "check:lint": "eslint src test --ext .ts",
+    "check:prettier": "prettier \"src/**/*.ts\" --list-different",
+    "fix": "yarn fix:prettier && yarn fix:lint",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write",
+    "fix:lint": "eslint src --ext .ts --fix",
+    "test": "hardhat test",
+    "pre-commit": "yarn fix",
+    "prepare": "yarn eth-sdk"
+  },
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "zod": "^3.22.1"
+  },
+  "peerDependencies": {
+    "@dethcrypto/eth-sdk-client": "^0.1.6"
+  },
+  "peerDependenciesMeta": {
+    "@dethcrypto/eth-sdk-client": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@dethcrypto/eth-sdk": "^0.3.4",
+    "@dethcrypto/eth-sdk-client": "^0.1.6",
+    "@gnosis.pm/zodiac": "^3.5.2",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.9",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@typechain/ethers-v5": "^10.2.1",
+    "@typechain/hardhat": "^6.1.6",
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^10.0.4",
+    "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "hardhat": "^2.19.1",
+    "hardhat-contract-sizer": "2.10.0",
+    "hardhat-deploy": "^0.11.44",
+    "hardhat-gas-reporter": "1.0.9",
+    "prettier": "^2.8.8",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.8.0",
+    "typechain": "^8.3.2",
+    "typescript": "^5.3.3"
+  },
+  "resolutions": {
+    "typechain": "^8.3.2"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  }
+}

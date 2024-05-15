@@ -1,0 +1,28 @@
+{
+  "name": "zodiac-roles-monorepo",
+  "private": true,
+  "description": "Zodiac Roles monorepo",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "prepare": "yarn build:evm && yarn workspaces foreach run prepare && yarn build:sdk",
+    "pre-commit": "yarn workspaces foreach run pre-commit",
+    "test": "yarn workspaces foreach run test",
+    "build": "yarn workspaces foreach run build",
+    "build:evm": "yarn workspace @gnosis.pm/zodiac-modifier-roles run build",
+    "build:subgraph": "yarn workspace zodiac-roles-subgraph run build",
+    "build:sdk": "yarn workspace zodiac-roles-sdk run build",
+    "build:app": "yarn workspace zodiac-roles-app run build",
+    "build:docs": "yarn workspace zodiac-roles-docs run build",
+    "coverage": "yarn workspace @gnosis.pm/zodiac-modifier-roles run coverage",
+    "dev": "yarn build:sdk && yarn workspace zodiac-roles-app run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gnosisguild/zodiac-modifier-roles.git"
+  },
+  "author": "",
+  "license": "LGPL-3.0+",
+  "packageManager": "yarn@3.7.0"
+}
